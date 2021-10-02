@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login page</title>
+    <link rel="stylesheet" href="loginstyle.css">
+</head>
+<body>
+    <div id="app"> 
+  <section class="header">
+    <a href="Main.html"><img class="logo" src="images/logo.png"></a>
+    <div class="nav-links">
+        <a id="link" href="Main.html">Home</a>
+        <a id="link" href="Event.html">Event</a>
+        <a id="link" href="#">Checkout</a>
+        <a id="link" href="Contact.html">Contact</a>
+        <a id="link" href="Login.html">Log in</a>                     
+    </div> 
+
+
+     <login-form />
+   
+
+
+
+
+</div>
+
+
+
+<script src="https://unpkg.com/vue@next"></script>
+<script>
+      let app = Vue.createApp({
+        
+    })
+    app.component('login-form', {
+       template: `
+
+       <div class="Content">
+        
+        <form @submit.prevent="handleSubmit">
+            <h3>{{ title }}</h3>
+            <label for="email"><b>Email</b></label>
+            <input type="text" v-model="email" placeholder="Enter Email"> 
+
+            <label for="psw"><b>Password</b></label>
+            <input type="password" v-model="password" placeholder="Enter Password">
+
+            <button class="Login-button">Log in</button>
+
+        </form>
+       
+    </div>
+       `,
+       data() {
+           return {
+               title: 'Login in ',
+               email: '',
+               password: ''
+           }
+       },
+       methods: {
+           handleSubmit() {
+               console.log(this.email, this.password)
+
+           }
+           
+
+       }
+    })
+    
+   
+  
+
+    app.mount('#app')
+
+</script>
+
+
+      
+</body>
+</html>

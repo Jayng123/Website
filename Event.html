@@ -1,0 +1,184 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events</title>
+    <link rel="stylesheet" href="Event.css">
+</head>
+<body>
+    <div id="app"> 
+        <header class="header">
+          <a href="Main.html"><img class="logo" src="images/logo.png"></a>
+          <div class="nav-links">
+              <a id="link" href="Main.html">Home</a>
+              <a id="link" href="Event.html">Event</a>
+              <a @click="toggleSidebar" id="link" href="#">Checkout</a>
+              <a id="link" href="Contact.html">Contact</a>
+              <a id="link" href="Login.html">Log in</a>                     
+          </div> 
+        
+        
+       <div class="main-content">
+          <div class="Event-one">
+              
+            <div class="Title">
+            <h3>Upcoming Events</h3>
+            </div>
+
+            <hr class="one">
+
+            <div v-for="product in inventory"  class="first-content">
+
+                <div class="Name">
+                    <p>{{ product.name }}</p>
+                </div>
+
+                <div class="day">
+                    <p>{{product.date}}</p>
+
+                </div>
+
+            <div class="date">
+                <p>{{ product.time }}</p>
+            </div>
+
+            
+            
+            <div class="price">
+                <h4>Price:</h4>
+            </div>
+           
+            <div class="dollar">
+                <p>{{ product.price }}</p>
+            </div>
+
+            <div class="person">
+                <h4>Per person:</h4>
+            </div>
+            
+                <div class="cell">
+                    <input type="number" v-model.number="inventory.Beginner">
+                   </div>
+    
+                   <div class="book-btn">
+                    <button @click="addToCart('Beginner')" class="Book-button">
+                        Book
+                    </button>
+                   </div>
+                </div>
+
+
+                   <hr class="two">
+
+    
+                </div>
+                
+            </div>
+            <sidebar 
+            v-if="showSidebar" 
+            :toggle="toggleSidebar" 
+            :cart="cart"
+            />
+    
+   </div>
+   
+
+ <!--sidebar Section-->
+
+
+
+            
+            <script src="https://unpkg.com/vue@next"></script>
+            <script>
+                let app = Vue.createApp({
+                    data() {
+                        return {
+                            showSidebar: false,
+                            inventory: [],
+                            
+                            cart:{
+                                Beginner: 0,
+                                Normal: 0,
+                                Advance: 0
+                            }
+                        }
+                    },
+                    methods: {
+                         addToCart(type) {
+                         this.cart[type] += this.inventory[type]
+                         console.log(this.cart)
+                        },
+                        toggleSidebar() {
+                            this.showSidebar = !this.showSidebar
+                        }
+                    },
+                     async mounted() {
+                        const res =  await fetch('./type.json')
+                        const data = await res.json ()
+                        this.inventory = data
+                    }
+                })
+               
+               app.component('sidebar',{
+                   props: ['toggle', 'cart'],
+                   computed: {
+                       cartTotal() {
+                           return this.cart.Beginner * 5.00
+                       }
+                   },
+
+                   template: `
+                   
+            <div class="-container">
+                <div class="sidebar">
+        
+                    <button @click="toggle" class="cart-close">&times;</button>
+        
+                    <div class="cart">
+                        <h2>Cart</h2>   
+                    </div>
+        
+                    <hr class="c-line"> 
+                
+                    <ul class="cart-items">
+         
+                       <li>
+                          
+                          <button class="btn cart-remove">&times;</button>
+                          <span class="qty">Per: {{cart.Beginner}}  </span>
+        
+                         <p class="item">
+                            Beginner basketball
+                         </p> 
+        
+                          <div class="price">\${{cart.Beginner * 5.00 }}</div>
+                       </li>
+        
+                       <hr class="c-line"> 
+            
+                    </ul> 
+                 
+                    <div class="cart-total">
+                       <p>Total:  <span class="total price"> \${{ cartTotal }}</span></p>
+                    </div> 
+                 
+                    <button class="checkout-btn">Checkout</button>
+                 
+                 </div> 
+                 
+             </div>     
+        
+                  
+        `
+               })
+               
+
+                app.mount('#app')
+                </script> 
+        </body>
+
+            
+</html>

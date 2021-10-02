@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact page</title>
+    <link href="Contact.css" rel="stylesheet">
+</head>
+<body>
+    <div id="App"></div>
+ <section class="header">
+    <a href="Main.html"><img class="logo" src="images/logo.png"></a>
+    <div class="nav-links">
+        <a id="link" href="Main.html">Home</a>
+        <a id="link" href="Event.html">Event</a>
+        <a @click="toggleSidebar" id="link" href="#">Checkout</a>
+        <a id="link" href="Contact.html">Contact</a>
+        <a id="link" href="Login.html">Log in</a>                     
+    </div> 
+    <div class="Contact-box">
+        <h3>Want to contact us ?</h3>
+        <form action="">
+            <label for="Name"><b>Name</b></label>
+            <input type="text" placeholder=" Enter Name">
+
+            <label for="email"><b>Email</b></label>
+            <input type="text" placeholder="Enter Email"> 
+
+            <label for="Topic">Topic</label>
+            <select id="Topic" v-model="formValues.Topic">
+                <option value="">Select a topic</option>
+                <option value="Report bug">Report bug</option>
+                <option value="Payment error">Payment error</option>
+                <option value="Dispute charge">Dispute charge</option>
+                <option value="Give feedback">Give feedback</option>
+            </select>
+            
+            <label for="Comments"><b>Comments</b></label>
+            <textarea type="text" class="inputField" placeholder="Comments"></textarea>
+
+            <button class="Submit-button">Submit</button>
+
+        </form>
+        <aside>
+            <p>For any other queries email us, at <a href="Booknplay.enquiry@vic.gov.au">Booknplay.enquiry@vic.gov.au</a>or phone Booknplay on 03 9843 2900</p>
+        </aside>
+
+    </div>
+</section>
+
+
+</body>
+
+</html>

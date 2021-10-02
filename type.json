@@ -1,0 +1,5 @@
+[
+    { "id": 1, "name": "Beginner-Basketball", "time": "8pm" ,"price": "$5.00", "day":"Today:" },
+    { "id": 2, "name": "Normal-Basketball", "time": "7pm"   ,"price": "$8.00",  "day":"Friday:"},
+    { "id": 3, "name": "Advance-Basketball", "time": "6pm"  ,"price": "$10.00", "day":"Saturday:"}
+]

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Basketball Website</title>
+    <link rel="stylesheet" href="Mainstyle.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+   
+</head>
+<body>
+    <section class="header">
+       
+            <a href="Main.html"><img class="logo" src="images/logo.png"></a>
+             <a href="#" class="toggle-button">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </a>
+            <div class="nav-links">
+             
+                <a id="link" href="Main.html">Home</a>
+                <a id="link" href="Event.html">Event</a>
+                <a @click="toggleSidebar" id="link" href="#">Checkout</a>
+                <a id="link" href="Contact.html">Contact</a>
+                <a id="link" href="Login.html">Log in</a> 
+                             
+            </div>
+            <div class="headText">
+                 <h1>Feel The Sports</h1>
+                 <h3>Meet more new people and more games</h3>
+                 <button id="Join-button" class="Join-button" href="#">Join now</button>
+            </div>
+            
+    </section>
+    
+<!--Modal Section-->
+<div class="modal" id="modal">
+    <div class="modal-content">
+        <h2>Sign Up</h2>
+        <form action="">
+            <label for="Name"><b>Name</b></label>
+            <input type="text" placeholder=" Enter Name">
+
+            <label for="email"><b>Email</b></label>
+            <input type="text" placeholder="Enter Email"> 
+        
+            <label for="psw"><b>Password</b></label>
+            <input type="password" placeholder="Enter Password">
+        
+            <label for="psw-repeat"><b>Repeat Password</b></label>
+            <input type="password" placeholder="Repeat Password">
+
+            <button class="Submit-button">Submit</button>
+
+        </form>
+    </div>
+</div>
+
+    
+</script>
+<script src="simple.js"></script>
+
+    
+</body>
+</html>
